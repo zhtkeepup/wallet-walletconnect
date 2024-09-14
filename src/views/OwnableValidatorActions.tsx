@@ -68,7 +68,7 @@ export default function OwnableValidatorActions({
 
     return (
         <Fragment>
-            <Row style={{ marginBottom: "$5" }}>
+            <div style={{ marginBottom: "$5" }}>
                 <Text>Module Details</Text>
                 <Button
                     size={"sm"}
@@ -77,27 +77,27 @@ export default function OwnableValidatorActions({
                 >
                     {isRefeshing && <Button color="success" isLoading />}
                 </Button>
-            </Row>
-            <Row style={{ marginBottom: "$5" }}>
+            </div>
+            <div style={{ marginBottom: "$5" }}>
                 <Text>Status</Text>
                 {isInstalled ? (
                     <Text color="success">Installed</Text>
                 ) : (
                     <Text color="warning">Not Installed</Text>
                 )}
-            </Row>
+            </div>
             {isInstalled && (
                 <Fragment>
                     <Text style={{ marginBottom: "$5" }}>State</Text>
                     <div style={{ marginBottom: "$5" }}>
-                        <Row style={{ marginBottom: "$3" }}>
+                        <div style={{ marginBottom: "$3" }}>
                             <Text>Current Threshold</Text>
                             <Text>{threshold}</Text>
-                        </Row>
-                        <Row style={{ marginBottom: "$5" }}>
+                        </div>
+                        <div style={{ marginBottom: "$5" }}>
                             <Text>{`Current Owner's Count`}</Text>
                             <Text>{owners.length}</Text>
-                        </Row>
+                        </div>
                         <Textarea
                             label={`Owners Addresses`}
                             width="100%"

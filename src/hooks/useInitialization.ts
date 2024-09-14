@@ -48,7 +48,11 @@ export default function useInitialization() {
             // SettingsStore.setTronAddress(tronAddresses[0]);
             // SettingsStore.setTezosAddress(tezosAddresses[0]);
             // SettingsStore.setKadenaAddress(kadenaAddresses[0]);
-            await createWeb3Wallet(relayerRegionURL);
+            await createWeb3Wallet(
+                relayerRegionURL == ""
+                    ? "wss://relay.walletconnect.com"
+                    : relayerRegionURL
+            ); //
             setInitialized(true);
         } catch (err: unknown) {
             console.error("Initialization failed", err);

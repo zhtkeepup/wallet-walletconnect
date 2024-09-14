@@ -1,24 +1,26 @@
-import ChainAddressMini from './ChainAddressMini'
-import { Button, Col, Row, Spinner, Text, Tooltip } from '@nextui-org/react'
-import InfoIcon from '@mui/icons-material/Info'
+import ChainAddressMini from "./ChainAddressMini";
+import { Button, Spinner, Input, Tooltip } from "@nextui-org/react";
 
 type SmartAccount = {
-  address: string
-  type: string
-}
+    address: string;
+    type: string;
+};
 
 interface Props {
-  account: SmartAccount
+    account: SmartAccount;
 }
 
 export default function ChainSmartAddressMini({ account }: Props) {
-  if (!account) return <Spinner />
-  return (
-    <Row>
-      <Col>
-        <Text style={{ marginLeft: '5px' }}>({account.type})</Text>
-        <ChainAddressMini address={account.address} />
-      </Col>
-    </Row>
-  )
+    if (!account) return <Spinner />;
+    return (
+        <div>
+            <div>
+                <Input
+                    style={{ marginLeft: "5px" }}
+                    defaultValue={account.type}
+                />
+                <ChainAddressMini address={account.address} />
+            </div>
+        </div>
+    );
 }

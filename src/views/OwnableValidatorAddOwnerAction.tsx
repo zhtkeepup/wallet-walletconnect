@@ -67,8 +67,8 @@ export default function OwnableValidatorAddOwnerAction({
             // bordered
             // title={<Text h5>Add Owner</Text>}
         >
-            <Col style={{ padding: "$5", paddingTop: 0 }}>
-                <Row style={{ marginBottom: "$5" }}>
+            <div style={{ padding: "$5", paddingTop: 0 }}>
+                <div style={{ marginBottom: "$5" }}>
                     <Input
                         style={{ width: "100%" }}
                         value={newOwner}
@@ -77,8 +77,8 @@ export default function OwnableValidatorAddOwnerAction({
                         onChange={(e) => setNewOwner(e.target.value)}
                         placeholder="add owner address"
                     />
-                </Row>
-                <Row style={{ display: "flex-end" }}>
+                </div>
+                <div style={{ display: "flex-end" }}>
                     <Button
                         disabled={!newOwner || !isAddress(newOwner)}
                         onClick={addOwner}
@@ -89,8 +89,8 @@ export default function OwnableValidatorAddOwnerAction({
                             "Add Owner"
                         )}
                     </Button>
-                </Row>
-            </Col>
+                </div>
+            </div>
         </div>
     );
 }

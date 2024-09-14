@@ -59,8 +59,8 @@ export default function OwnableValidatorSetThresholdAction({
             style={{ marginBottom: "$2" }}
             title={<Text h5>Update threshold</Text>}
         >
-            <Col style={{ padding: "$5", paddingTop: 0 }}>
-                <Row
+            <div style={{ padding: "$5", paddingTop: 0 }}>
+                <div
                     justify="space-between"
                     align="center"
                     style={{ marginBottom: "$5" }}
@@ -71,8 +71,8 @@ export default function OwnableValidatorSetThresholdAction({
                         >{`Current Owner's Count `}</Text>
                         <Text>{ownerCount}</Text>
                     </TableCell>
-                </Row>
-                <Row style={{ marginBottom: "$5" }}>
+                </div>
+                <div style={{ marginBottom: "$5" }}>
                     <Input
                         style={{ width: "100%" }}
                         value={threshold.toString() || "0"}
@@ -81,8 +81,8 @@ export default function OwnableValidatorSetThresholdAction({
                         onChange={(e) => setThreshold(parseInt(e.target.value))}
                         placeholder="threshold"
                     />
-                </Row>
-                <Row>
+                </div>
+                <div>
                     <Button
                         disabled={
                             ownerCount === 0 ||
@@ -97,8 +97,8 @@ export default function OwnableValidatorSetThresholdAction({
                             "Update Threshold"
                         )}
                     </Button>
-                </Row>
-            </Col>
+                </div>
+            </div>
         </div>
     );
 }

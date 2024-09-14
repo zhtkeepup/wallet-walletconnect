@@ -89,12 +89,12 @@ export default function SessionSignModal() {
                 protocol={requestSession.relay.protocol}
             />
             <Divider />
-            <Row>
-                <Col>
+            <div>
+                <div>
                     <Text>Message</Text>
                     <Text data-testid="request-message-text">{message}</Text>
-                </Col>
-            </Row>
+                </div>
+            </div>
         </RequestModal>
     );
 }

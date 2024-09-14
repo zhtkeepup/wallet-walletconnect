@@ -91,8 +91,8 @@ export default function OwnableValidatorInstallAction({
         // title={<Text h5>Install</Text>}
         >
             <Text>Install</Text>
-            <Col style={{ padding: "$5", paddingTop: 0 }}>
-                <Row style={{ marginBottom: "$5" }}>
+            <div style={{ padding: "$5", paddingTop: 0 }}>
+                <div style={{ marginBottom: "$5" }}>
                     <Input
                         style={{ width: "100%" }}
                         value={threshold.toString() || "0"}
@@ -101,8 +101,8 @@ export default function OwnableValidatorInstallAction({
                         onChange={(e) => setThreshold(parseInt(e.target.value))}
                         placeholder="threshold"
                     />
-                </Row>
-                <Row style={{ marginBottom: "$5" }}>
+                </div>
+                <div style={{ marginBottom: "$5" }}>
                     <Textarea
                         style={{ width: "100%" }}
                         maxRows={4}
@@ -112,8 +112,8 @@ export default function OwnableValidatorInstallAction({
                         onChange={(e) => setAddresses(e.target.value)}
                         placeholder="Enter comma separated addresses."
                     />
-                </Row>
-                <Row>
+                </div>
+                <div>
                     <Button
                         disabled={
                             !isValidAddressAndThreshold(threshold, addresses)
@@ -126,8 +126,8 @@ export default function OwnableValidatorInstallAction({
                             "Install"
                         )}
                     </Button>
-                </Row>
-            </Col>
+                </div>
+            </div>
         </div>
     );
 }

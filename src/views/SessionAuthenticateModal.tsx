@@ -176,8 +176,8 @@ export default function SessionAuthenticateModal() {
                     </Checkbox>
                 </div>
             </div>
-            <Row>
-                <Col>
+            <div>
+                <div>
                     <Text>Messages to Sign ({messages.length})</Text>
                     {messages.map((message, index) => {
                         console.log("@loop messageToSign", message);
@@ -187,8 +187,8 @@ export default function SessionAuthenticateModal() {
                             </Code>
                         );
                     })}
-                </Col>
-            </Row>
+                </div>
+            </div>
         </RequestModal>
     );
 }

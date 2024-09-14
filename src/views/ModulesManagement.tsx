@@ -92,7 +92,7 @@ export default function ModulesManagement({
                                 })
                             }
                         >
-                            <Row>
+                            <div>
                                 <Text>{module.name}</Text>
                                 <Text
                                     color={
@@ -105,7 +105,7 @@ export default function ModulesManagement({
                                         ? "Installed"
                                         : "Not Installed"}
                                 </Text>
-                            </Row>
+                            </div>
                         </Card>
                     ))}
                 </div>

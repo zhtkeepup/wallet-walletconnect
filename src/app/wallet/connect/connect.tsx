@@ -68,9 +68,7 @@ export default function WalletConnectPage(params: { deepLink?: string }) {
                 pairingExpiredListener
             );
             console.log("zht,web3wallet.pair...2", new Date());
-            console.log("zht,before pari,web3wallet:", web3wallet);
             await web3wallet.pair({ uri });
-            console.log("zht,after pari,web3wallet:", web3wallet);
             console.log("zht,web3wallet.pair...3", new Date());
         } catch (error) {
             console.log("zht,web3wallet.pair...4:", error);

@@ -1,26 +1,28 @@
-import { Col, Row, Text } from '@nextui-org/react'
+import { Input } from "@nextui-org/react";
 
 type PermissionAction = {
-  description: string
-}
+    description: string;
+};
 
 interface IProps {
-  scope: PermissionAction[]
+    scope: PermissionAction[];
 }
 
 export default function PermissionDetailsCard({ scope }: IProps) {
-  return (
-    <Row>
-      <Col>
-        <Text h5>Dapp is requesting following permissions</Text>
-        {scope.map((action, index) => {
-          return (
-            <Text color="$gray400" key={index}>
-              {action.description}
-            </Text>
-          )
-        })}
-      </Col>
-    </Row>
-  )
+    return (
+        <div>
+            <div>
+                <Input defaultValue="Dapp is requesting following permissions" />
+                {scope.map((action, index) => {
+                    return (
+                        <Input
+                            defaultValue={action.description}
+                            color="$gray400"
+                            key={index}
+                        />
+                    );
+                })}
+            </div>
+        </div>
+    );
 }

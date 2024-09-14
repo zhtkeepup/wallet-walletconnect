@@ -3,8 +3,9 @@ import { Core } from "@walletconnect/core";
 export let web3wallet: IWeb3Wallet;
 
 export async function createWeb3Wallet(relayerRegionURL: string) {
+    const prjId_w3ea_local = "1c1eb2a89d6c42c0515bd656c2171721";
     const core = new Core({
-        projectId: "28ea6f0008f538025eebb2a6e49953ec", // process.env.WALLET_CONNECT_PROJECT_ID,
+        projectId: prjId_w3ea_local, // process.env.WALLET_CONNECT_PROJECT_ID,
         relayUrl: relayerRegionURL ?? "wss://relay.walletconnect.com", // process.env.WALLET_CONNECT_RELAY_URL,
         logger: "trace",
     });

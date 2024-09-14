@@ -24,12 +24,13 @@ import { EIP7715_METHOD } from "@/data/EIP7715Data";
 function refreshSessionsList() {}
 
 export default function useWalletConnectEventsManager(initialized: boolean) {
+    console.log("zht,useWalletConnectEventsManager,initialized:", initialized);
     /******************************************************************************
      * 1. Open session proposal modal for confirmation / rejection
      *****************************************************************************/
     const onSessionProposal = useCallback(
         (proposal: SignClientTypes.EventArguments["session_proposal"]) => {
-            console.log("session_proposal", proposal);
+            console.log("zht,conn-event,session_proposal", proposal);
             // set the verify context so it can be displayed in the projectInfoCard
             SettingsStore.setCurrentRequestVerifyContext(
                 proposal.verifyContext
@@ -43,6 +44,7 @@ export default function useWalletConnectEventsManager(initialized: boolean) {
      *****************************************************************************/
     const onAuthRequest = useCallback(
         (request: Web3WalletTypes.AuthRequest) => {
+            console.log("zht,conn-event,AuthRequestModal");
             ModalStore.open("AuthRequestModal", { request });
         },
         []
@@ -61,6 +63,7 @@ export default function useWalletConnectEventsManager(initialized: boolean) {
                 web3wallet.engine.signClient.session.get(topic);
             // set the verify context so it can be displayed in the projectInfoCard
             SettingsStore.setCurrentRequestVerifyContext(verifyContext);
+            console.log("zht,onSessionRequest,request.method:", request.method);
             switch (request.method) {
                 case EIP155_SIGNING_METHODS.ETH_SIGN:
                 case EIP155_SIGNING_METHODS.PERSONAL_SIGN:
@@ -203,6 +206,9 @@ export default function useWalletConnectEventsManager(initialized: boolean) {
                     });
                     */
                 default:
+                    console.log(
+                        "zht,onSessionRequest,SessionUnsuportedMethodModal!!!"
+                    );
                     return ModalStore.open("SessionUnsuportedMethodModal", {
                         requestEvent,
                         requestSession,
@@ -216,6 +222,10 @@ export default function useWalletConnectEventsManager(initialized: boolean) {
         (
             authRequest: SignClientTypes.EventArguments["session_authenticate"]
         ) => {
+            console.log(
+                "zht,SessionAuthenticateModal,authRequest:",
+                authRequest
+            );
             ModalStore.open("SessionAuthenticateModal", { authRequest });
         },
         []
@@ -225,6 +235,14 @@ export default function useWalletConnectEventsManager(initialized: boolean) {
      * Set up WalletConnect event listeners
      *****************************************************************************/
     useEffect(() => {
+        console.log(
+            "zht,useWalletConnectEventsManager,useEffect,initialized:",
+            initialized
+        );
+        console.log(
+            "zht,useWalletConnectEventsManager,useEffect,web3wallet:",
+            web3wallet
+        );
         if (initialized && web3wallet) {
             //sign
             web3wallet.on("session_proposal", onSessionProposal);

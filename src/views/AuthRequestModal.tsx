@@ -80,14 +80,14 @@ export default function AuthRequestModal() {
             approveLoader={{ active: isLoadingApprove }}
             rejectLoader={{ active: isLoadingReject }}
         >
-            <Row>
-                <Col>
+            <div>
+                <div>
                     <Text>Message</Text>
                     <Code>
                         <Text style={{ color: "$gray400" }}>{message}</Text>
                     </Code>
-                </Col>
-            </Row>
+                </div>
+            </div>
         </RequestModal>
     );
 }

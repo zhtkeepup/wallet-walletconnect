@@ -92,12 +92,12 @@ export default function SessionSignKadenaModal() {
             <Divider />
             {message && (
                 <>
-                    <Row>
-                        <Col>
+                    <div>
+                        <div>
                             <Text>Message</Text>
                             <Text>{message}</Text>
-                        </Col>
-                    </Row>
+                        </div>
+                    </div>
                     <Divider />
                 </>
             )}

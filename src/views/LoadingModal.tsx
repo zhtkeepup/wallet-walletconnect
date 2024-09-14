@@ -19,18 +19,18 @@ export default function LoadingModal() {
     return (
         <RequestModalContainer title="">
             <div style={{ textAlign: "center", padding: "20px" }}>
-                <Row>
-                    <Col>
+                <div>
+                    <div>
                         <Button color="primary" isLoading>
                             Loading
                         </Button>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
+                    </div>
+                </div>
+                <div>
+                    <div>
                         <Text>Loading your request...</Text>
-                    </Col>
-                </Row>
+                    </div>
+                </div>
                 {message ? (
                     <div style={{ textAlign: "center" }}>
                         <Divider />

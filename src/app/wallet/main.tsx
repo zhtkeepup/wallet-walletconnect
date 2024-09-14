@@ -21,12 +21,15 @@ export default function Main({ Content }: { Content: any }) {
     // Step 2 - Once initialized, set up wallet connect event manager
     useWalletConnectEventsManager(initialized);
     useEffect(() => {
+        console.log("zht,Network 000,initialized:", initialized);
         if (!initialized) return;
         web3wallet?.core.relayer.on(RELAYER_EVENTS.connect, () => {
+            console.log("zht,Network connection is restored!");
             styledToast("Network connection is restored!", "success");
         });
 
         web3wallet?.core.relayer.on(RELAYER_EVENTS.disconnect, () => {
+            console.log("zht,Network connection lost.");
             styledToast("Network connection lost.", "error");
         });
     }, [initialized]);
@@ -46,8 +49,9 @@ export default function Main({ Content }: { Content: any }) {
                 <Content />
                 zzz123a**********2
             </Layout>
-
+            modal1:
             <Modal />
+            modal2:
         </div>
     );
 }

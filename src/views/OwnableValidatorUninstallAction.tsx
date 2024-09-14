@@ -25,7 +25,7 @@ export default function OwnableValidatorUninstallActions({
     return (
         <div style={{ marginBottom: "$2" }}>
             <Text>Uninstall</Text>
-            <Row>
+            <div>
                 <Text>Coming soon...</Text>
                 <Button disabled onClick={uninstall}>
                     {isUninstalling ? (
@@ -34,7 +34,7 @@ export default function OwnableValidatorUninstallActions({
                         "Uninstall"
                     )}
                 </Button>
-            </Row>
+            </div>
         </div>
     );
 }

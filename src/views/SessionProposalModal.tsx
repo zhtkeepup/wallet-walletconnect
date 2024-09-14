@@ -392,38 +392,38 @@ export default function SessionProposalModal() {
             }
             infoBoxText={`The session cannot be approved because the wallet does not the support some or all of the proposed chains. Please inspect the console for more information.`}
         >
-            <Row>
-                <Col>
+            <div>
+                <div>
                     <Text>Requested permissions</Text>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
+                </div>
+            </div>
+            <div>
+                <div>
                     {/* <DoneIcon style={{ verticalAlign: "bottom" }} />{" "} */}
                     <Text>View your balance and activity</Text>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
+                </div>
+            </div>
+            <div>
+                <div>
                     {/* <DoneIcon style={{ verticalAlign: "bottom" }} />{" "} */}
                     <Text>Send approval requests</Text>
-                </Col>
-            </Row>
-            <Row>
-                <Col style={{ color: "gray" }}>
+                </div>
+            </div>
+            <div>
+                <div style={{ color: "gray" }}>
                     {/* <CloseIcon style={{ verticalAlign: "bottom" }} /> */}
                     <Text>Move funds without permission</Text>
-                </Col>
-            </Row>
+                </div>
+            </div>
             <div style={{ marginBottom: "10px", marginTop: "10px" }}>
                 <div>
-                    <Row style={{ color: "GrayText" }}>
+                    <div style={{ color: "GrayText" }}>
                         <TableCell>Accounts</TableCell>
-                    </Row>
+                    </div>
                     {(supportedChains.length > 0 &&
                         supportedChains.map((chain, i) => {
                             return (
-                                <Row key={i}>
+                                <div key={i}>
                                     <ChainAddressMini
                                         key={i}
                                         address={
@@ -431,33 +431,33 @@ export default function SessionProposalModal() {
                                             "test"
                                         }
                                     />
-                                </Row>
+                                </div>
                             );
                         })) || (
-                        <Row>
+                        <div>
                             <TableCell>Non available</TableCell>
-                        </Row>
+                        </div>
                     )}
 
-                    <Row style={{ color: "GrayText" }}>
+                    <div style={{ color: "GrayText" }}>
                         <TableCell>Smart Accounts</TableCell>
-                    </Row>
+                    </div>
                     {smartAccountEnabled &&
                         getAvailableSmartAccounts().map((account, i) => {
                             if (!account) {
                                 return <></>;
                             }
                             return (
-                                <Row key={i}>
+                                <div key={i}>
                                     <ChainSmartAddressMini account={account} />
-                                </Row>
+                                </div>
                             );
                         })}
                 </div>
                 <div>
-                    <Row style={{ color: "GrayText" }} justify="flex-end">
+                    <div style={{ color: "GrayText" }} justify="flex-end">
                         <TableCell>Chains</TableCell>
-                    </Row>
+                    </div>
                     {(supportedChains.length > 0 &&
                         supportedChains.map((chain, i) => {
                             if (!chain) {
@@ -465,33 +465,33 @@ export default function SessionProposalModal() {
                             }
 
                             return (
-                                <Row key={i}>
+                                <div key={i}>
                                     <ChainDataMini
                                         key={i}
                                         chainId={`${chain?.namespace}:${chain?.chainId}`}
                                     />
-                                </Row>
+                                </div>
                             );
                         })) || (
-                        <Row>
+                        <div>
                             <TableCell>Non available</TableCell>
-                        </Row>
+                        </div>
                     )}
-                    <Row style={{ color: "GrayText" }} justify="flex-end">
+                    <div style={{ color: "GrayText" }} justify="flex-end">
                         <TableCell>Chains</TableCell>
-                    </Row>
+                    </div>
                     {smartAccountEnabled &&
                         getAvailableSmartAccounts().map(({ chain }, i) => {
                             if (!chain) {
                                 return <></>;
                             }
                             return (
-                                <Row key={i} style={{ marginTop: "24px" }}>
+                                <div key={i} style={{ marginTop: "24px" }}>
                                     <ChainDataMini
                                         key={i}
                                         chainId={`eip155:${chain.id}`}
                                     />
-                                </Row>
+                                </div>
                             );
                         })}
                 </div>

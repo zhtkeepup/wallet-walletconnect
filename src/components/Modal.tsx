@@ -1,19 +1,25 @@
 import ModalStore from "@/store/ModalStore";
 import SessionProposalModal from "@/views/SessionProposalModal";
 import SessionSendTransactionModal from "@/views/SessionSendTransactionModal";
-import SessionSignCosmosModal from "@/views/SessionSignCosmosModal";
+// import SessionSignCosmosModal from "@/views/SessionSignCosmosModal";
 import SessionRequestModal from "@/views/SessionSignModal";
-import SessionSignNearModal from "@/views/SessionSignNearModal";
-import SessionSignPolkadotModal from "@/views/SessionSignPolkadotModal";
-import SessionSignSolanaModal from "@/views/SessionSignSolanaModal";
-import SessionSignMultiversxModal from "@/views/SessionSignMultiversxModal";
-import SessionSignTronModal from "@/views/SessionSignTronModal";
-import SessionSignTezosModal from "@/views/SessionSignTezosModal";
-import SessionSignKadenaModal from "@/views/SessionSignKadenaModal";
+// import SessionSignNearModal from "@/views/SessionSignNearModal";
+// import SessionSignPolkadotModal from "@/views/SessionSignPolkadotModal";
+// import SessionSignSolanaModal from "@/views/SessionSignSolanaModal";
+// import SessionSignMultiversxModal from "@/views/SessionSignMultiversxModal";
+// import SessionSignTronModal from "@/views/SessionSignTronModal";
+// import SessionSignTezosModal from "@/views/SessionSignTezosModal";
+// import SessionSignKadenaModal from "@/views/SessionSignKadenaModal";
 import SessionSignTypedDataModal from "@/views/SessionSignTypedDataModal";
 import SessionUnsuportedMethodModal from "@/views/SessionUnsuportedMethodModal";
 import SessionSendCallsModal from "@/views/SessionSendCallsModal";
-import { Modal as NextModal } from "@nextui-org/react";
+import {
+    Modal as NextModal,
+    ModalContent,
+    ModalHeader,
+    ModalBody,
+    ModalFooter,
+} from "@nextui-org/react";
 import { useSnapshot } from "valtio";
 import { useCallback, useMemo } from "react";
 import AuthRequestModal from "@/views/AuthRequestModal";
@@ -23,6 +29,8 @@ import SessionGrantPermissionsModal from "@/views/SessionGrantPermissionsModal";
 
 export default function Modal() {
     const { open, view } = useSnapshot(ModalStore.state);
+    console.log("zht,Modal,open:", open);
+    console.log("zht,Modal,view:", view);
     // handle the modal being closed by click outside
     const onClose = useCallback(() => {
         if (open) {
@@ -31,6 +39,7 @@ export default function Modal() {
     }, [open]);
 
     const componentView = useMemo(() => {
+        console.log("zht,Modal,componentView,view:", view);
         switch (view) {
             case "SessionProposalModal":
                 return <SessionProposalModal />;
@@ -46,22 +55,22 @@ export default function Modal() {
                 return <SessionSendCallsModal />;
             case "SessionUnsuportedMethodModal":
                 return <SessionUnsuportedMethodModal />;
-            case "SessionSignCosmosModal":
-                return <SessionSignCosmosModal />;
-            case "SessionSignSolanaModal":
-                return <SessionSignSolanaModal />;
-            case "SessionSignPolkadotModal":
-                return <SessionSignPolkadotModal />;
-            case "SessionSignNearModal":
-                return <SessionSignNearModal />;
-            case "SessionSignMultiversxModal":
-                return <SessionSignMultiversxModal />;
-            case "SessionSignTronModal":
-                return <SessionSignTronModal />;
-            case "SessionSignTezosModal":
-                return <SessionSignTezosModal />;
-            case "SessionSignKadenaModal":
-                return <SessionSignKadenaModal />;
+            // case "SessionSignCosmosModal":
+            //     return <SessionSignCosmosModal />;
+            // case "SessionSignSolanaModal":
+            //     return <SessionSignSolanaModal />;
+            // case "SessionSignPolkadotModal":
+            //     return <SessionSignPolkadotModal />;
+            // case "SessionSignNearModal":
+            //     return <SessionSignNearModal />;
+            // case "SessionSignMultiversxModal":
+            //     return <SessionSignMultiversxModal />;
+            // case "SessionSignTronModal":
+            //     return <SessionSignTronModal />;
+            // case "SessionSignTezosModal":
+            //     return <SessionSignTezosModal />;
+            // case "SessionSignKadenaModal":
+            //     return <SessionSignKadenaModal />;
             case "AuthRequestModal":
                 return <AuthRequestModal />;
             case "LoadingModal":
@@ -75,12 +84,13 @@ export default function Modal() {
 
     return (
         <NextModal
-            blur
             onClose={onClose}
-            open={open}
+            isOpen={open}
             style={{ border: "1px solid rgba(139, 139, 139, 0.4)" }}
         >
-            {componentView}
+            <ModalContent>
+                <ModalBody>{componentView}</ModalBody>
+            </ModalContent>
         </NextModal>
     );
 }

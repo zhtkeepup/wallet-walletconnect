@@ -45,22 +45,22 @@ export default function ThreatPrompt({
     return (
         <RequestModalContainer title="">
             <div style={{ textAlign: "center", padding: "20px" }}>
-                <Row>
-                    <Col>
+                <div>
+                    <div>
                         icon
                         {/* <NewReleasesIcon
                             sx={{ fontSize: "55px", color: "$error" }}
                             color="error"
                         /> */}
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
+                    </div>
+                </div>
+                <div>
+                    <div>
                         <Text>Website flagged</Text>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
+                    </div>
+                </div>
+                <div>
+                    <div>
                         <Link
                             style={{ verticalAlign: "middle" }}
                             href={url}
@@ -68,8 +68,8 @@ export default function ThreatPrompt({
                         >
                             {url}
                         </Link>
-                    </Col>
-                </Row>
+                    </div>
+                </div>
                 <div style={{ textAlign: "center" }}>
                     <Divider />
                     <Text>
@@ -77,19 +77,19 @@ export default function ThreatPrompt({
                         malicious by multiple security providers. Approving may
                         lead to loss of funds.
                     </Text>
-                    <Row>
+                    <div>
                         <Button color="warning" onClick={onApprove}>
                             Proceed anyway
                         </Button>
-                    </Row>
-                    <Row>
-                        <Col
+                    </div>
+                    <div>
+                        <div
                             style={{ margin: "auto", cursor: "pointer" }}
                             onClick={onReject}
                         >
                             <Button>Close</Button>
-                        </Col>
-                    </Row>
+                        </div>
+                    </div>
                 </div>
             </div>
         </RequestModalContainer>
