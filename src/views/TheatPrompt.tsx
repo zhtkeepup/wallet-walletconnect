@@ -33,7 +33,7 @@ interface IProps {
 //     padding: "10px",
 //     border: "1px solid $error",
 //     borderRadius: "30px",
-// } as any);
+/// } as any);
 
 export default function ThreatPrompt({
     metadata,
